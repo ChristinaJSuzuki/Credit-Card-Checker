@@ -86,3 +86,11 @@ function idInvalidCardCompanies(invalidCards) {
 // checked first digit of each card to determine issuing company
 // added company if it's not already in the companies array
 // returned companies array
+
+const invalidCards = findInvalidCards(batch);
+const companies = idInvalidCardCompanies(invalidCards);
+console.log(companies);
+
+// used findInvalidCards() function to get all the invalid credit card numbers from the batch array
+// passed result to the idInvalidCardCompanies() function to identify companies that issued invalid cards
+// console.log() to verify output
