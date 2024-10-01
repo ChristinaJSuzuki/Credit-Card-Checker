@@ -38,6 +38,13 @@ const batch = [
   mystery5,
 ];
 
+/*
+Credit Card Issuer	Starts With ( IIN Range )	Length ( Number of digits )
+American Express	  34, 37	                    15
+Visa	              4	                            13-16-19
+MasterCard	          51, 52, 53, 54, 55, 222100-272099	   16
+Discover	6011, 622126 to 622925, 644, 645, 646, 647, 648, 649, 65	16-19 */
+
 function findInvalidCards(cards) {
   let invalidCards = [];
   for (let card of cards) {
@@ -53,3 +60,29 @@ function findInvalidCards(cards) {
 // use validateCred function to check if the card is valid
 // if the card is invalid, add it to the invalidCards array
 // return invalidCards array
+
+function idInvalidCardCompanies(invalidCards) {
+  let companies = [];
+  for (let card of invalidCards) {
+    let firstDigit = card[0];
+    if (firstDigit === 3 && !companies.includes("Amex")) {
+      companies.push("Amex");
+    } else if (firstDigit === 4 && !companies.includes("Visa")) {
+      companies.push("Visa");
+    } else if (firstDigit === 5 && !companies.includes("Mastercard")) {
+      companies.push("Mastercard");
+    } else if (firstDigit === 6 && !companies.includes("Discover")) {
+      companies.push("Discover");
+    } else if (![3, 4, 5, 6].includes(firstDigit)) {
+      console.log("Company not found");
+    }
+  }
+  return companies;
+}
+
+// created idInvalidCardCompanies function with one parameter (invalidCards)
+// created empty array called companies to store companies' names
+// loop through each card in invalidCards array
+// checked first digit of each card to determine issuing company
+// added company if it's not already in the companies array
+// returned companies array
