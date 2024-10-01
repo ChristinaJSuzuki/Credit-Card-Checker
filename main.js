@@ -41,8 +41,15 @@ const batch = [
 function findInvalidCards(cards) {
   let invalidCards = [];
   for (let card of cards) {
+    if (!validateCred(card)) {
+      invalidCards.push(card);
+    }
   }
+  return invalidCards;
 }
 // created new function findInvalidCards that takes one parameter (card)
 // new empty array invalidCards to store invalid credit card numbers
 // loop through each card in the cards array
+// use validateCred function to check if the card is valid
+// if the card is invalid, add it to the invalidCards array
+// return invalidCards array
