@@ -37,3 +37,6 @@ const batch = [
   mystery4,
   mystery5,
 ];
+
+function findInvalidCards(cards) {}
+// created new function findInvalidCards that takes one parameter (card)
