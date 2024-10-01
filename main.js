@@ -38,5 +38,11 @@ const batch = [
   mystery5,
 ];
 
-function findInvalidCards(cards) {}
+function findInvalidCards(cards) {
+  let invalidCards = [];
+  for (let card of cards) {
+  }
+}
 // created new function findInvalidCards that takes one parameter (card)
+// new empty array invalidCards to store invalid credit card numbers
+// loop through each card in the cards array
