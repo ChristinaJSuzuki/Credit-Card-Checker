@@ -45,6 +45,31 @@ Visa	              4	                            13-16-19
 MasterCard	          51, 52, 53, 54, 55, 222100-272099	   16
 Discover	6011, 622126 to 622925, 644, 645, 646, 647, 648, 649, 65	16-19 */
 
+//Free Frmatter's Luhn algorithm
+
+function validateCred(card) {
+  const checkDigit = card.pop();
+  card.reverse();
+  let sum = checkDigit;
+
+  for (let i = 0; i < card.length; i++) {
+    let num = card[i];
+    if (i % 2 === 0) {
+      num *= 2;
+      if (num > 9) num -= 9;
+    }
+    sum += num;
+  }
+
+  return sum % 10 === 0;
+}
+
+//Removed last digit from the array (checkDigit)
+//Reversed remaining array
+//Doubled digits in odd positions. If result is greater than 9, subtracted 9
+//Added all the digits together, including the check digit removed
+//If total modulo 10 is 0, card is valid
+
 function findInvalidCards(cards) {
   let invalidCards = [];
   for (let card of cards) {
